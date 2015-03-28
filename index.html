@@ -1,22 +1,248 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html ng-app>
+
 	<head>
-		<meta charset="utf-8">
-		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="renderer" content="webkit">
+		<meta name="renderer" content="ie-stand">
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<meta http-equiv="x-dns-prefetch-control" content="off">
+		<title>IFRE</title>
+		<link rel="shortcut icon" href="img/icon.gif" type="image/x-icon">
+		<link rel="apple-touch-icon" href="img/icon.gif">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="js/shl/styles/shCore.css"/>
+		<link rel="stylesheet" type="text/css" href="js/shl/styles/shThemeDefault.css"/>
+		<script src="js/angular.min.js"></script>
+		<script src="js/ngIndex.js"></script>
 	</head>
+
 	<body>
-		<ul ng-controller="test">
-			<li ng-repeat="item in list">
-				name:{{item.name}};age:{{item.age}}
-			</li>
-		</ul>
+		<div class="container" style="width: 940px; margin: 0 auto;">
+			<div class="row-fluid nav-wrapper">
+				<div class="row-fluid" style="width: 940px;">
+					<div class="span6 text-left header-top" style="color:#999;">
+						<b class="blue">I</b>nternet
+						<b class="blue">F</b>inance
+						<b class="blue">R</b>isk
+						<b class="blue">E</b>valuation
+					</div>
+					<div class="span6 text-right header-top">
+						<a class="btn btn-small" href="http://score.ifre.co/IFRE" target="_blank" style="color: #f37522;">
+							开始评分
+						</a>
+						<a id="example" href="javascript:void(0)" style="display:inline-block;">
+							<img src="img/weixin.png" style="width: 28px; height: 28px;" />
+						</a>
+						|
+						<a href="javascript:void(0)">TEL:010-69552625</a>
+					</div>
+				</div>
+				<div class="row-fluid navbar-wrapper">
+					<div class="span5" style="padding-top: 9px;">
+						<a class="nav-item" href="http://www.ifre.co">
+							<img src="img/logo.gif" style="height: 52px;" />
+						</a>
+					</div>
+					<div class="span7 nav-self">
+						<ul>
+							<li class="nav-item" style="width: 25%;">
+								<span style="color: #006DCC; position: absolute; top: 10px; left: 40%;">
+								<img src="img/arrow.png"/>
+							</span>
+								<a href="#menu1">接口<span class="big-font blue padding-left-1">介绍</span></a>
+							</li>
+							<li class="nav-item" style="width: 25%;">
+								<span style="color: #006DCC; position: absolute; top: 10px; left: 40%;">
+								<img src="img/arrow.png"/>
+							</span>
+								<a href="#menu2">接入<span class="big-font blue padding-left-1">流程</span></a>
+							</li>
+							<li class="nav-item" style="width: 25%;">
+								<span style="color: #006DCC; position: absolute; top: 10px; left: 40%;">
+								<img src="img/arrow.png"/>
+							</span>
+								<a href="#menu3">使用<span class="big-font blue padding-left-1">方法</span></a>
+							</li>
+							<li class="nav-item" style="width: 25%;">
+								<span style="color: #006DCC; position: absolute; top: 10px; left: 40%;">
+								<img src="img/arrow.png"/>
+							</span>
+								<a href="#menu4">接口<span class="big-font blue padding-left-1">文档</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div id="menu1" class="row-fluid">
+				<h4 class="title">接口介绍</h4>
+				<div class="span12">
+					<h5><b>一、服务介绍</b></h5>
+					<p>基于IFRE的模型，服务器可以根据用户已有的部分参数，计算出该用户的获贷概率</p>
+					<p><b>二、接入方式</b></p>
+					<p>
+						a)	网站接口接入
+						<br />
+						b)	移动端接口接入
+					</p>
+				</div>
+			</div>
+			<div id="menu2" class="row-fluid">
+				<h4 class="title">接口流程</h4>
+				<div class="span12">
+					<p><b>setp1、</b>与IFRE合作，得到机构唯一标识UUID和机构密钥key</p>
+					<p><b>setp2、</b>导入架包<a href="resource/ifre_score.jar">ifre_score.jar</a></p>
+					<p><b>setp3、</b>创建所需模型对象</p>
+					<p><b>setp4、</b>向模型对象中传入参数</p>
+					<p><b>setp5、</b>使用IFRE服务对象提交模型</p>
+				</div>
+			</div>
+			<div id="menu3" class="row-fluid">
+				<h4 class="title">使用方法</h4>
+				<div class="span12">
+					<pre class="brush:java">
+						String json="";	
+						String json2="";	
+						Request request = new Request();
+						//创建服务器服务对象
+						IFRECall ifrecall = new IFRECall(); 		 
+						
+						//创建企业信用request对象，详见接口文档中的模型说明
+						OCSRequest ocsrequest = ifrecall.getOcsRequest();
+						//创建企业信用response对象，详见接口文档中的模型说明
+						OCSResponse ocsresponse = ifrecall.getOcsResponse();
+						 		
+						//组织json格式报文，参数详见接口文档中的请求参数说明，没有值的参数可以不用SET	
+						ocsrequest.setUuid("您公司的uuid");
+						
+						StringBuffer sb = ocsrequest.getSBAppendInfo();
+						sb.append("您公司的密钥");
+						ocsrequest.setMD5(DigestUtils.md5Hex(sb.toString()));
+						json=JSON.toJSONString(ocsrequest);
+								
+						//设置请求参数，根据模型填写对应的URL
+						ocsrequest.setUrl("http://score.ifre.co/IFRESCORES/ifre/PCScore");		
+						//传入符合接口要求的json格式报文
+						ocsrequest.setRequest(json);		
+						//发起调用服务器端服务
+						ocsresponse=ifrecall.OCSexecute(ocsrequest);
+						
+						//返回相应参数,参数详见接口文档中的返回参数说明
+						json2 = ocsresponse.getResponse();
+					</pre>
+				</div>
+			</div>
+			<div id="menu4" class="row-fluid">
+				<h4 class="title">接口文档</h4>
+				<div class="span12">
+					<p><b>一、模型说明</b></p>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>模型名称</th>
+								<th>request对象</th>
+								<th>URL</th>
+								<th>Response对象</th>
+							</tr>
+						</thead>
+						<body ng-controller="modelController">
+							<tr ng-repeat="item in items">
+								<td>{{item.name}}</td>
+								<td>{{item.request}}</td>
+								<td>{{item.url}}</td>
+								<td>{{item.response}}</td>
+							</tr>
+						</body>
+					</table>
+					<p><b>二、请求参数说明</b></p>
+					<p>
+						请求参数关键字搜索：<input type="text" ng-model="query" />
+					</p>
+					<ol ng-controller="paramsController">
+						<li ng-repeat="item in items | filter:query">
+							<p class="blue"><b>{{item.name | filter:name}}</b></p>
+							<p><b>说明：</b>{{item.readme | filter:readme}}</p>
+							<p><b>参数说明：</b>类型：{{item.ptype}}/长度：{{item.plen}}</p>
+							<p><b>使用示例：</b><i>模型对象.set{{item.name}}({{item.demo}});</i></p>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12 text-center" style="padding: 40px 0;  background: #eee; font-size: 12px;">
+				<p>
+					Copyright © 2012-2014 All Rights Reserved.
+				</p>
+				<p>
+					数信互融科技发展有限公司（TEL:010-69552625）
+				</p>
+				<p>
+					苏ICP备10095435号-3
+				</p>
+			</div>
+		</div>
+		<div id="myModal" class="modal hide fade">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3>用微信扫扫</h3>
+			</div>
+			<div class="modal-body text-center">
+				<img src="img/code.png" width="40%" />
+			</div>
+			<div class="modal-footer">
+				<a href="javascript:hideDialog()" class="btn">关闭</a>
+			</div>
+		</div>
 	</body>
-	<script type="text/javascript" src="js/angular.min.js" ></script>
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.nav.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/shl/scripts/shCore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/shl/scripts/shBrushJava.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		function test($scope,$http){
-			$http.get('js/data.json').success(function(data){
-				$scope.list=data;
+		SyntaxHighlighter.all();
+		
+		$('#example').popover({
+			html:true,
+			placement:'bottom',
+			content:'<img src="img/code.png" style="width: 132px;height: 132px;" />'
+		});
+		$('#example').on({
+			'mouseenter':function(){
+				$(this).popover('show');
+			},
+			'mouseleave':function(){
+				$(this).popover('hide');
+			}
+		});
+		 //initiating jQuery
+		jQuery(function($) {
+			$(document).ready(function() {
+				$('.nav-wrapper').onePageNav({
+					currentClass: 'active',
+					changeHash: false,
+					scrollSpeed: 750,
+					scrollThreshold: 0.5,
+					filter: '',
+					easing: 'swing',
+					begin: function() {
+						//I get fired when the animation is starting
+					},
+					end: function() {
+						//I get fired when the animation is ending
+					},
+					scrollChange: function($currentListItem) {
+						//I get fired when you enter a section and I pass the list item of the section
+						console.log($currentListItem);
+					}
+				});
 			});
-		}
+		});
 	</script>
 </html>

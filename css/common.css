@@ -1,0 +1,148 @@
+body{
+	font-family: "微软雅黑","宋体";
+}
+#menu1,#menu2,#menu3,#menu4{
+	padding-top: 129px;
+}
+#menu2,#menu3,#menu4{
+	margin-top: -129px;
+}
+.title{
+	background: #efefef;
+	padding: 10px 5px;
+}
+.nav-wrapper{
+	position: fixed;
+	top: 0;
+	background: #fefefe;
+	z-index: 2;
+}
+.navbar-wrapper{
+	width: 940px;
+	padding-bottom: 10px;
+	border-top: 2px solid #CCCCCC;
+}
+.nav-self{
+	width: 100%;
+	height: 61px;
+	margin-top: -2px;
+}
+.nav-self li{
+	float: left;
+	display: inline;
+	width: 33%;
+	padding-top: 20px;
+}
+.nav-self li:hover,.nav-self li.active{
+	border-top: 2px solid #036eb8;
+}
+.nav-self a{
+	display: inline-block;
+	height: 41px;
+	line-height: 41px;
+	width: 99%;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 18px;
+	border-right: 1px solid #CCCCCC;
+	color: #333333;
+	text-decoration: none;
+}
+.nav-self li:last-child a{
+	border-right: none;
+}
+.nav-self .big-font{
+	font-size: 24px;
+}
+.nav-item{
+	position: relative;
+}
+.big-img{
+	margin: 10px 0;
+	padding: 0 10px;
+	height: 344px;
+	background: url(../img/big_2.gif) no-repeat;
+}
+.big-img p{
+	font-size: 200%;
+	line-height: 2;
+	font-weight: bolder;
+	color: #fefefe;
+}
+.big-font{
+	font-size: 120%;
+	/*line-height: 2;*/
+	font-weight: bolder;
+}
+.p-style-1{
+	text-indent: 38px;
+	color: #666;
+	font-size: 16px;
+}
+.header-top{
+	padding: 8px 0;
+}
+.header-top a{
+	color: #666;
+	font-weight: bolder;
+	font-size: 10px;
+}
+
+.bg-pic-1{
+	height: 400px;
+	background: url(../img/bg_pic_4.png) no-repeat left 90px;
+}
+.bg-pic-2{
+	height: 400px;
+	background: url(../img/bg_pic_1_1.png) no-repeat right 100px;
+}
+.bg-pic-3{
+	height: 400px;
+	background: url(../img/bg_pic_3_1.png) no-repeat right 0px;
+}
+.blue{
+	color: #036eb8;
+}
+
+.bg-color-1{
+	background: rgb(122,196,137);
+}
+
+.bg-color-2{
+	background: rgb(20,176,191);
+}
+
+.bg-color-3{
+	background: rgb(85,145,171);
+}
+.padding-left-1{
+	padding-left: 5px;
+}
+
+.top-line{
+	background: url(../img/line.png) no-repeat center 140px;
+}
+.top-line-1{
+	background: url(../img/line.png) no-repeat center 140px;
+}
+.top-line-3{
+	background: url(../img/line.png) no-repeat center 90px;
+}
+.padding-bottom-1{
+	padding-bottom: 30px;
+}
+.block-1{
+	background: url(../img/block_1.png) no-repeat left top;
+	height: 232px;
+}
+.block-2{
+	background: url(../img/block_2.png) no-repeat left top;
+	height: 232px;
+}
+.block-3{
+	background: url(../img/block_3.png) no-repeat left top;
+	height: 232px;
+}
+.logos img{
+	margin: 10px 0;
+}
